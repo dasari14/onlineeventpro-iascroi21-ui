@@ -1,0 +1,92 @@
+version: "3.7"
+
+services:
+  format:
+    entrypoint:
+      - "node"
+      - "node_modules/.bin/prettier"
+      - "**/*.{css,html,ejs,mjs,js,json,jsx,yml,yaml}"
+      - "--write"
+    image: node:12.16.0-stretch
+    init: true
+    volumes:
+      - type: bind
+        source: ./
+        target: /usr/src/app
+    working_dir: /usr/src/app
+
+  lint:
+    entrypoint:
+      - "node"
+      - "node_modules/.bin/eslint"
+      - "."
+      - "--ext"
+      - ".ejs,.js,.jsx,.mjs"
+    image: node:12.16.0-stretch
+    init: true
+    volumes:
+      - type: bind
+        source: ./
+        target: /usr/src/app
+    working_dir: /usr/src/app
+
+  node:
+    command:
+      - "node"
+      - "--inspect=0.0.0.0:5${PORT}"
+      - "--require"
+      - "dotenv/config"
+      - "node_modules/.bin/react-scripts"
+      - "start"
+    image: "node:12.16.0-stretch"
+    init: true
+    networks:
+      - default
+      - local-network
+    ports:
+      - target: ${PORT}
+        published: ${PORT}
+        protocol: tcp
+        mode: host
+      - target: 5${PORT}
+        published: 5${PORT}
+        protocol: tcp
+        mode: host
+    volumes:
+      - type: bind
+        source: ./
+        target: /usr/src/app
+    working_dir: /usr/src/app
+
+  npm:
+    entrypoint:
+      - "npm"
+    environment:
+      NODE_ENV: development
+      NPM_AUTH_TOKEN: ${NPM_AUTH_TOKEN}
+    image: node:12.16.0-stretch
+    init: true
+    volumes:
+      - type: bind
+        source: ./
+        target: /usr/src/app
+    working_dir: /usr/src/app
+
+  secrets-to-env:
+    entrypoint:
+      - "node"
+      - "--require"
+      - "dotenv/config"
+      - "node_modules/.bin/secrets-to-env"
+    image: node:12.16.0-stretch
+    init: true
+    volumes:
+      - type: bind
+        source: ./
+        target: /usr/src/app
+    working_dir: /usr/src/app
+
+networks:
+  local-network:
+    driver: bridge
+    external: true

@@ -1,0 +1,79 @@
+{
+  "name": "onlineeventpro-ui",
+  "version": "1.0.0",
+  "private": true,
+  "scripts": {
+    "start": "react-scripts start",
+    "build": "react-scripts build",
+    "test": "react-scripts test",
+    "eject": "react-scripts eject",
+    "DO-NOT-USE": "echo \"🚫 Adding scripts here causes them to run on each developers local machine under the operating system and NodeJS version they have installed and is specific to each developers environment. A better approach is to run scripts in Docker and specify the details (including the OS and NodeJS version) in the docker-compose.yml\""
+  },
+  "dependencies": {
+    "@vimeo/player": "^2.14.1",
+    "@vvo/tzdb": "^5.5.2",
+    "addtocalendar": "^1.5.3",
+    "axios": "^0.19.0",
+    "countries-names": "^1.0.4",
+    "date-fns": "^2.12.0",
+    "debug": "^4.1.1",
+    "fetch": "^1.1.0",
+    "fs": "0.0.1-security",
+    "fuse.js": "^6.4.1",
+    "i18n-js": "^3.7.0",
+    "js-file-download": "^0.4.12",
+    "lodash": "^4.17.15",
+    "mauerwerk": "^2.0.2",
+    "moment": "^2.24.0",
+    "moment-duration-format": "^2.3.2",
+    "moment-timezone": "^0.5.28",
+    "node-sass": "^4.13.1",
+    "prop-types": "^15.7.2",
+    "purecss": "^1.0.1",
+    "react": "^16.11.0",
+    "react-app-polyfill": "^1.0.6",
+    "react-big-calendar": "^0.27.0",
+    "react-dom": "^16.11.0",
+    "react-ga": "^2.7.0",
+    "react-gtm-module": "^2.0.8",
+    "react-lottie": "^1.2.3",
+    "react-meta-tags": "^0.7.4",
+    "react-redux": "^7.1.1",
+    "react-router-dom": "^5.1.2",
+    "react-scripts": "^3.4.1",
+    "react-simple-keyboard": "^2.1.31",
+    "redux": "^4.0.4",
+    "redux-thunk": "^2.3.0",
+    "secure-ls": "^1.2.6",
+    "stream-chat-react": "^1.2.2",
+    "validator": "^13.1.1"
+  },
+  "devDependencies": {
+    "@klowd/secrets-to-env": "^1.0.3",
+    "@pdftron/webviewer": "^7.1.2",
+    "aws-sdk": "^2.665.0",
+    "eslint": "^6.8.0",
+    "eslint-config-prettier": "^6.15.0",
+    "eslint-plugin-import": "^2.22.1",
+    "eslint-plugin-jsx-a11y": "^6.4.1",
+    "eslint-plugin-prettier": "^3.1.4",
+    "eslint-plugin-react": "^7.21.5",
+    "eslint-plugin-react-hooks": "^2.5.1",
+    "prettier": "^2.1.2",
+    "react-axe": "^3.5.3"
+  },
+  "browserslist": {
+    "production": [
+      ">0.2%",
+      "ie 11",
+      "not dead",
+      "not op_mini all"
+    ],
+    "development": [
+      "last 1 chrome version",
+      "last 1 firefox version",
+      "last 1 safari version",
+      "last 1 ie version"
+    ]
+  }
+}
